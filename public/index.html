@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<title>Drinkopoly Online</title>
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+<div id="app">
+
+  <!-- HOME -->
+  <section id="screen-home" class="screen">
+    <div class="brand">
+      <div class="brand-mark">🎲</div>
+      <h1>DRINK<span>OPOLY</span></h1>
+      <p class="tagline">The adventure drinking game. Play it from anywhere, on a call with everyone.</p>
+    </div>
+
+    <div class="card">
+      <h2>Start a game</h2>
+      <label>Your name
+        <input id="create-name" maxlength="24" placeholder="e.g. Almontaser" />
+      </label>
+      <button id="btn-create" class="btn btn-primary">Create Room</button>
+    </div>
+
+    <div class="card">
+      <h2>Join a game</h2>
+      <label>Room code
+        <input id="join-code" maxlength="4" placeholder="ABCD" style="text-transform:uppercase" />
+      </label>
+      <label>Your name
+        <input id="join-name" maxlength="24" placeholder="e.g. Sam" />
+      </label>
+      <button id="btn-join" class="btn btn-secondary">Join Room</button>
+    </div>
+
+    <p id="home-error" class="error"></p>
+  </section>
+
+  <!-- LOBBY -->
+  <section id="screen-lobby" class="screen">
+    <div class="lobby-header">
+      <div>
+        <div class="room-code-label">Room code</div>
+        <div class="room-code" id="lobby-code">----</div>
+      </div>
+      <div class="header-actions">
+        <button id="btn-sound-lobby" class="icon-btn" title="Toggle sound">🔊</button>
+        <button id="btn-copy-link" class="btn btn-ghost">Copy invite link</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Players <span id="lobby-count" class="muted"></span></h2>
+      <ul id="lobby-players" class="player-list"></ul>
+    </div>
+
+    <div class="card">
+      <h2>Your look</h2>
+      <p class="muted small">Pick a token and color for the board.</p>
+      <div id="avatar-picker" class="icon-grid"></div>
+      <div id="color-picker" class="color-grid"></div>
+    </div>
+
+    <div class="card" id="deck-card">
+      <h2>Customize the deck</h2>
+      <p class="muted small">Toggle which challenge types are in play, then add your own.</p>
+      <div id="deck-toggles" class="toggle-grid"></div>
+
+      <div class="add-custom">
+        <select id="custom-category">
+          <option value="never">Never Have I Ever</option>
+          <option value="truth">Truth (prompt)</option>
+          <option value="dare">Dare (prompt)</option>
+          <option value="categories">Categories (topic)</option>
+          <option value="most_likely">Most Likely To (statement)</option>
+          <option value="rhyme">Rhyme Time (word)</option>
+          <option value="chaos">Chaos event (flavor text)</option>
+        </select>
+        <input id="custom-text" maxlength="280" placeholder="Write your own challenge..." />
+        <button id="btn-add-custom" class="btn btn-secondary btn-small">Add</button>
+      </div>
+      <p id="deck-error" class="error small"></p>
+    </div>
+
+    <button id="btn-start" class="btn btn-primary btn-big">Start Game</button>
+    <p id="lobby-hint" class="muted small center"></p>
+    <button id="btn-leave-lobby" class="btn btn-ghost btn-small">Leave room</button>
+  </section>
+
+  <!-- GAME -->
+  <section id="screen-game" class="screen">
+    <div class="game-topbar">
+      <div class="room-pill">Room <b id="game-code"></b></div>
+      <div class="header-actions">
+        <button id="btn-sound-game" class="icon-btn" title="Toggle sound">🔊</button>
+        <button id="btn-leave-game" class="btn btn-ghost btn-small">Leave</button>
+      </div>
+    </div>
+
+    <p id="spectator-banner" class="spectator-banner" hidden>👀 You're spectating — the game already started. You'll be able to jump in next game.</p>
+
+    <div class="board-wrap">
+      <div id="board" class="board"></div>
+    </div>
+
+    <div id="rules-banner" class="rules-banner" hidden>
+      <div class="rules-title">🍺 House rules in effect</div>
+      <ul id="rules-list"></ul>
+    </div>
+
+    <div class="card" id="items-card" hidden>
+      <h3>Your items</h3>
+      <div id="items-bar" class="items-bar"></div>
+    </div>
+
+    <div class="card">
+      <h3>Players</h3>
+      <ul id="game-players" class="player-list"></ul>
+    </div>
+
+    <details class="card">
+      <summary>Activity log</summary>
+      <ul id="game-log" class="log-list"></ul>
+    </details>
+
+    <button id="btn-end-game" class="btn btn-ghost btn-small">End game (host)</button>
+  </section>
+
+  <!-- GAME OVER -->
+  <section id="screen-over" class="screen">
+    <h1>🏁 Game Over</h1>
+    <div id="awards" class="awards-grid"></div>
+    <div class="card">
+      <h2>Final tally</h2>
+      <ul id="over-stats" class="player-list"></ul>
+    </div>
+    <button id="btn-restart" class="btn btn-primary" hidden>Back to lobby (host)</button>
+    <button id="btn-leave-over" class="btn btn-ghost">Leave</button>
+  </section>
+
+</div>
+
+<!-- Target picker (for Payback item) -->
+<div id="target-modal" class="modal-backdrop" hidden>
+  <div class="modal">
+    <div class="event-badge">Payback</div>
+    <div class="event-text">Who's drinking?</div>
+    <div id="target-options" class="event-options"></div>
+    <button id="btn-cancel-target" class="btn btn-ghost">Cancel</button>
+  </div>
+</div>
+
+<!-- Event modal -->
+<div id="event-modal" class="modal-backdrop" hidden>
+  <div class="modal">
+    <div id="event-badge" class="event-badge">Challenge</div>
+    <div class="dice-wrap">
+      <div id="die" class="die" data-value="1">
+        <span class="pip"></span><span class="pip"></span><span class="pip"></span>
+        <span class="pip"></span><span class="pip"></span><span class="pip"></span>
+        <span class="pip"></span><span class="pip"></span><span class="pip"></span>
+      </div>
+      <div id="event-roll" class="event-roll"></div>
+    </div>
+    <div id="event-text" class="event-text"></div>
+    <div id="event-options" class="event-options"></div>
+    <button id="btn-next-turn" class="btn btn-primary btn-big" hidden>Next turn →</button>
+    <p id="event-hint" class="muted small center"></p>
+  </div>
+</div>
+
+<script src="/app.js"></script>
+</body>
+</html>
