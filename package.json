@@ -1,0 +1,14 @@
+{
+    "name": "drinkopoly-online",
+    "version": "1.0.0",
+    "description": "A Boardgame-Online-style adventure drinking game you can play remotely with friends over video call.",
+    "main": "server.js",
+    "private": true,
+    "scripts": {
+          "start": "node server.js"
+    },
+    "dependencies": {},
+    "engines": {
+          "node": ">=18"
+    }
+}
