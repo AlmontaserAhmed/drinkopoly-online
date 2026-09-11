@@ -1,0 +1,111 @@
+{
+  "never": [
+    "Never have I ever texted an ex while drunk.",
+    "Never have I ever pretended to be sick to get out of plans.",
+    "Never have I ever stalked someone's social media before a first date.",
+    "Never have I ever fallen asleep in a video call.",
+    "Never have I ever lied about where I was.",
+    "Never have I ever sung karaoke sober.",
+    "Never have I ever cried during a movie in the last year.",
+    "Never have I ever ghosted someone.",
+    "Never have I ever sent a text to the wrong group chat.",
+    "Never have I ever had a crush on a friend's partner.",
+    "Never have I ever pretended to know a song I'd never heard.",
+    "Never have I ever laughed so hard I cried in the last month.",
+    "Never have I ever eaten food off the floor.",
+    "Never have I ever googled myself.",
+    "Never have I ever rage-quit a video game.",
+    "Never have I ever shown up somewhere in the wrong outfit.",
+    "Never have I ever pretended my camera was broken to skip a call.",
+    "Never have I ever forgotten someone's name right after meeting them."
+  ],
+  "truth": [
+    "What's the most embarrassing thing in your search history?",
+    "What's a lie you told that spiraled out of control?",
+    "Who in this game would you trust with your phone unlocked for a day?",
+    "What's the worst gift you've ever received (and who gave it)?",
+    "What's a habit you have that you'd never admit to a stranger?",
+    "What's the pettiest reason you've ever been mad at someone?",
+    "What app do you spend the most embarrassing amount of time on?",
+    "What's the last thing you lied about in this call?",
+    "Who do you talk to the most that isn't in this game right now?",
+    "What's a nickname you secretly like being called?",
+    "What's the weirdest thing you've ever eaten?",
+    "What's a purchase you regret but haven't told anyone about?"
+  ],
+  "dare": [
+    "Do your best impression of a celebrity for 10 seconds on camera.",
+    "Show everyone the 5th most recent photo in your camera roll.",
+    "Turn your camera upside down (or rotate it) for the next 2 rounds.",
+    "Mute yourself and lip-sync a song of the group's choosing for 15 seconds.",
+    "Let the group pick your profile picture for the rest of the game.",
+    "Talk in an accent chosen by the group until your next turn.",
+    "Do 10 jumping jacks on camera right now.",
+    "Send the group chat a message using only emojis describing your day.",
+    "Hold a straight face for 30 seconds while everyone tries to make you laugh.",
+    "Speak only in questions until your next turn.",
+    "Show off your worst dance move for 10 seconds.",
+    "Let someone else in the game rename you on the call for the rest of the game."
+  ],
+  "categories": [
+    "Types of alcohol",
+    "Movies with one-word titles",
+    "Things you find at a beach",
+    "Pizza toppings",
+    "Cities you'd want to visit",
+    "90s cartoons",
+    "Things that are red",
+    "Fast food chains",
+    "Superheroes",
+    "Countries in Europe",
+    "Things you'd bring camping",
+    "Dance moves"
+  ],
+  "most_likely": [
+    "Most likely to become famous.",
+    "Most likely to sleep through their own wedding.",
+    "Most likely to cry laughing tonight.",
+    "Most likely to become a millionaire before 30.",
+    "Most likely to get lost using GPS.",
+    "Most likely to survive a zombie apocalypse.",
+    "Most likely to text an ex tonight.",
+    "Most likely to forget this game happened tomorrow.",
+    "Most likely to become a UFC fighter.",
+    "Most likely to start a business on a whim.",
+    "Most likely to fall asleep first if this were in person.",
+    "Most likely to win an argument with no evidence at all."
+  ],
+  "rhyme": [
+    "night", "drink", "phone", "love", "game", "light",
+    "cool", "friend", "time", "fire", "round", "year"
+  ],
+  "waterfall": [
+    "Waterfall! The current player starts drinking, and everyone else joins in one by one going around the turn order. No one can stop until the person before them stops. Last one drinking loses and takes 2 extra sips."
+  ],
+  "chaos": [
+    { "type": "ALL_DRINK", "text": "Chaos! Everyone in the game takes 2 sips, no exceptions." },
+    { "type": "EVERYONE_ELSE_DRINKS", "text": "Chaos! Everyone EXCEPT the current player drinks 2 sips." },
+    { "type": "REVERSE_ORDER", "text": "Chaos! Turn order is reversed starting now." },
+    { "type": "SKIP_NEXT", "text": "Chaos! The next player's turn is skipped entirely." },
+    { "type": "SWAP_POSITIONS", "text": "Chaos! Swap board positions with a random other player." },
+    { "type": "MOVE_FORWARD_3", "text": "Chaos! Move forward 3 spaces immediately." },
+    { "type": "MOVE_BACK_3", "text": "Chaos! Move back 3 spaces immediately." },
+    { "type": "RULE_CHANGE_NO_NAMES", "text": "New house rule for the rest of the game: no saying anyone's name out loud. Break it, drink.", "ruleText": "No saying anyone's name (breaking it = drink)." },
+    { "type": "RULE_CHANGE_NO_POINTING", "text": "New house rule for the rest of the game: no pointing at your camera. Break it, drink.", "ruleText": "No pointing at the camera (breaking it = drink)." },
+    { "type": "RULE_CHANGE_OFFHAND", "text": "New house rule for the rest of the game: everyone must hold their drink with their off-hand. Break it, drink.", "ruleText": "Hold your drink with your off-hand (breaking it = drink)." },
+    { "type": "RANDOM_TOAST", "text": "Chaos! Current player proposes a toast — everyone drinks to it." },
+    { "type": "DOUBLE_OR_NOTHING", "text": "Chaos! Current player calls it in the air: heads or tails. Win = give out 4 sips. Lose = take 4 sips." },
+    { "type": "SPOTLIGHT", "text": "Chaos! Everyone else votes: who's most likely to regret tonight? They drink 3." },
+    { "type": "FREEZE", "text": "Chaos! The current player is frozen — they can't drink for the next 2 rounds even when told to." },
+    { "type": "BONUS_LAP", "text": "Chaos! Current player gets to roll again immediately after this turn." },
+    { "type": "ITEM_SHIELD", "text": "You found a Shield! Save it to block the next bad thing chaos throws at you." },
+    { "type": "ITEM_PAYBACK", "text": "You found a Payback token! Save it to force 2 sips on anyone, anytime." },
+    { "type": "ITEM_EXTRA", "text": "You found an Extra Turn token! Save it to take a bonus turn whenever you want." }
+  ],
+  "rest": [
+    "Quiet space. Take a breather (or a sip, your call).",
+    "Nothing to see here. Sip if you're feeling generous.",
+    "A moment of peace before the next storm.",
+    "Free space — no challenge, no chaos. Enjoy it."
+  ]
+}
